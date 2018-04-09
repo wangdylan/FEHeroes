@@ -1,0 +1,68 @@
+/******************************************************************************
+app.component.css
+---------------------------------------
+Author:Dylan Wang
+CSE 235 - Spring 2018
+---------------------------------------
+Style sheet for main page elements.
+******************************************************************************/
+
+.scale:hover {
+  transform: scale(1.1);
+}
+
+.clip-circle {
+  clip-path: circle(79px at center);
+}
+
+.clip-circle-red {
+    border: 5px solid #EC644B;
+}
+.clip-circle-red:hover {
+    border: 7px solid #EC644B;
+}
+
+.clip-circle-blue {
+    border: 5px solid #4183D7;
+}
+.clip-circle-blue:hover {
+    border: 7px solid #4183D7;
+}
+
+.clip-circle-green {
+    border: 5px solid #87D37C;
+}
+.clip-circle-green:hover {
+    border: 7px solid #87D37C;
+}
+
+.clip-circle-colorless {
+    border: 5px solid #95A5A6;
+}
+.clip-circle-colorless:hover {
+    border: 7px solid #95A5A6;
+}
+
+.circle-bg {
+    width: 158px;
+    height: 158px;
+    border-radius: 50%;
+    background-color: rgba(189, 189, 189, 0.6);
+}
+.circle-bg:hover {
+    background-color: rgba(200, 0, 0, 0.7);
+}
+
+.name {
+    font-weight: bold;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+    
+    text-align: center;
+    font-size: 22px;
+}

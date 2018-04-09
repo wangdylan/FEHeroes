@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/******************************************************************************
+styles.css
+---------------------------------------
+Author:Dylan Wang
+CSE 235 - Spring 2018
+---------------------------------------
+Global style sheet for Angular and page defaults.
+******************************************************************************/
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@font-face {
+    font-family: 'FEHFont';
+    src: url("assets/system.ttf");
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+    background-color: #D2D7D3;
+    background-image: url("assets/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: FEHFont, sans-serif !important;
+    font-weight: bold;
+}
+
+.unit-detail .mat-dialog-container {
+    background-image: url("assets/background3.png");
+    background-size: cover;
+    padding: 0;
+    width: 100vw;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: FEHFont, sans-serif !important;
+    font-weight: bold;
+}

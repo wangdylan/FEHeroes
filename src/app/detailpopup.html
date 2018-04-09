@@ -1,0 +1,97 @@
+<!-----------------------------------------------------------------------------
+detailpopup.html
+---------------------------------------
+Author:Dylan Wang
+CSE 235 - Spring 2018
+---------------------------------------
+HTML file for the popup dialog after selecting a unit. Displays unit details and
+filtered chart data comparing to other units. Can switch between two chart types.
+------------------------------------------------------------------------------>
+
+<!--Unit details that appear on the left side of the page. Attempts to mimic in-game format.-->
+<div class="unit">
+    <img src="./assets/unit_bg.png" class="unit-bg">
+    <img src="./assets/Art/{{selected_hero.name}}/Face.png" class="unit-portrait">
+    <img src="./assets/back.png" class="unit-back scale" (click)="closePopup()">
+    <img src="./assets/unit_overlay.png" class="unit-overlay">
+    
+    <div class="unit-detail title">{{selected_hero.title}}</div>
+    <div *ngIf="selected_hero.shortName" class="unit-detail name">{{selected_hero.shortName}}</div>
+    <div *ngIf="!selected_hero.shortName" class="unit-detail name">{{selected_hero.name}}</div>
+    <div class="unit-detail lvl">40</div>
+    <div class="unit-detail stat hp">{{selected_hero['hp']}}</div>
+    <div class="unit-detail stat atk">{{selected_hero['atk']}}</div>
+    <div class="unit-detail stat spd">{{selected_hero['spd']}}</div>
+    <div class="unit-detail stat def">{{selected_hero['def']}}</div>
+    <div class="unit-detail stat res">{{selected_hero['res']}}</div>
+    
+    <img src="./assets/UI Icons/{{selected_hero.weaponType}}.png" class="unit-weapon">
+    <img src="./assets/UI Icons/{{selected_hero.moveType}}.png" class="unit-move">
+</div>
+
+<!--List of filters for sorting unit data.-->
+<div class="filter">
+    <div class="filter1">
+        <ul style="list-style-type:none">
+            <li>Color:</li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(0)">Red</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(1)">Green</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(2)">Blue</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(3)">Colorless</mat-checkbox></li>
+        </ul>
+    </div>
+    <div class="filter2">
+        <ul style="list-style-type:none">
+            <li>Weapon Type:</li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(4)">Sword</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(5)">Axe</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'"(change)="toggle(6)">Lance</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(7)">Tome</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(8)">Breath</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(9)">Bow</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(10)">Dagger</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(11)">Staff</mat-checkbox></li>
+        </ul>
+    </div>
+    <div class="filter3">
+        <ul style="list-style-type:none">
+            <li>Move Type:</li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(12)">Infantry</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(13)">Cavalry</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(14)">Flying</mat-checkbox></li>
+            <li><mat-checkbox [checked]="'true'" (change)="toggle(15)">Armored</mat-checkbox></li>
+        </ul>
+    </div>
+    <div [ngClass]="{'invisible' : chart1_visibility === 'true'}">
+        <ul style="list-style-type:none">
+            <li>X-Axis:</li>
+            <li><mat-select (change)="changeAxis(0, $event.value)" class="filter4">
+                    <mat-option value="0">HP</mat-option>
+                    <mat-option value="1">Atk</mat-option>
+                    <mat-option value="2">Spd</mat-option>
+                    <mat-option value="3">Def</mat-option>
+                    <mat-option value="4">Res</mat-option>
+            </mat-select></li>
+            <li>Y-Axis:</li>
+            <li><mat-select (change)="changeAxis(1, $event.value)" class="filter4">
+                    <mat-option value="0">HP</mat-option>
+                    <mat-option value="1">Atk</mat-option>
+                    <mat-option value="2">Spd</mat-option>
+                    <mat-option value="3">Def</mat-option>
+                    <mat-option value="4">Res</mat-option>
+            </mat-select></li>
+        </ul>
+    </div>
+</div>
+
+<!--Two charts that adjust data according to filters. Both are drawn but only one is visible at a time.-->
+<div class="chart">
+    <img src="./assets/chart_button1.png" class="chart-button1 scale" (click)="changeChart(0)">
+    <img src="./assets/chart_button2.png" class="chart-button2 scale" (click)="changeChart(1)">
+    <div class="chart-class1" [ngClass]="{'invisible' : chart1_visibility !== 'true'}">
+        <canvas id="myChart1"></canvas>
+    </div>
+    <div class="chart-class2" [ngClass]="{'invisible' : chart1_visibility === 'true'}">
+        <canvas id="myChart2"></canvas>
+    </div>
+</div>

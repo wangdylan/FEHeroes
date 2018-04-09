@@ -1,0 +1,191 @@
+/******************************************************************************
+detailpopup.css
+---------------------------------------
+Author:Dylan Wang
+CSE 235 - Spring 2018
+---------------------------------------
+Style sheet for popup dialog page elements.
+******************************************************************************/
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scale:hover {
+  transform: scale(1.1);
+}
+
+.unit {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.unit-bg {
+    z-index: 1;
+    height: 100%;
+}
+
+.unit-portrait {
+    position: absolute;
+    top: 0;
+    left: -23.5vh;
+    z-index: 2;
+    height: 125%;
+    
+    clip-path: inset(0px 24.3vh 0px 0px);
+}
+
+.unit-back {
+    z-index: 4;
+    height: 15%;
+}
+
+.unit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 100%;
+}
+
+.unit-weapon {
+    position: absolute;
+    top: 57.9vh;
+    left: 5vh;
+    z-index: 4;
+    height: 3%;
+}
+
+.unit-move {
+    position: absolute;
+    top: 57.8vh;
+    left: 21.5vh;
+    z-index: 4;
+    height: 3%;
+}
+
+.unit-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    
+    font-weight: bold;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    -webkit-font-smoothing: antialiased
+}
+
+.title {
+    top: 43.3vh;
+    left: 4vh;
+    font-size: 3vh;
+    color: white;
+}
+
+.name {
+    top: 49.3vh;
+    left: 11vh;
+    font-size: 3vh;
+    color: white;
+}
+
+.lvl {
+    top: 58vh;
+    left: 15vh;
+    font-size: 2vh;
+    color: white;
+}
+
+.stat {
+    left: 18vh;
+    font-size: 2vh;
+    color: #FFEB7F;
+}
+
+.hp {
+    top: 62.5vh;
+}
+.atk {
+    top: 66.2vh;
+}
+.spd {
+    top: 70.0vh;
+}
+.def {
+    top: 73.8vh;
+}
+.res {
+    top: 77.5vh;
+}
+
+.chart {
+    position: relative;
+    top: -200vh;
+    left: 35vh;
+    height: 100%;
+    width:100vw;
+    z-index: 6;
+}
+
+.chart-class1 {
+}
+
+.chart-class2 {
+    position: absolute;
+    top: 11vh;
+    left: 37.5vh;
+    width: 130vh;
+    height: 84%;
+    z-index: 6;
+}
+
+.filter {
+    position: relative;
+    top: -100vh;
+    left: 53vh;
+    height: 100%;
+    width: 21vh;
+    z-index: 7;
+    
+    font-weight: bold;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+    font-size: 2.5vh;
+}
+
+.filter4 {
+    width: 6vw;
+    text-shadow: none;
+    background-color: rgba(189, 189, 189, 0.8);
+}
+
+.chart-button1 {
+    position: relative;
+    height: 6vw;
+    width: 30vw;
+    left: 19vw;
+}
+.chart-button2 {
+    position: relative;
+    height: 6vw;
+    width: 30vw;
+    left: 19vw;
+}
+
+.invisible {
+    opacity: 0;
+    z-index: 0;
+}
