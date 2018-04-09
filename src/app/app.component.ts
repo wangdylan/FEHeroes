@@ -100,7 +100,7 @@ export class AppComponent {
     **********************************************************/
     shutup() {
         this.audio.muted = !this.audio.muted;
-        document.getElementById('feh').src = this.audio.muted ? "../assets/feh2.png" : "../assets/feh.png";
+        document.getElementById('feh')['src'] = this.audio.muted ? "../assets/feh2.png" : "../assets/feh.png";
     }
 }
 
@@ -114,11 +114,11 @@ Component that handles logic for popup dialog page.
 })
 export class DetailPopup implements AfterViewInit {
 
-    selected_hero = [];
+    selected_hero: any;
     hero_stats = [];
     filterStates = [];
-    radarChart = [];
-    scatterChart = [];
+    radarChart: any;
+    scatterChart: any;
     xAxis = 0;
     yAxis = 1;
     chart1_visibility = 'true';
@@ -228,7 +228,7 @@ export class DetailPopup implements AfterViewInit {
     Updates the radar chart with new passed in average.
     **********************************************************/
     updateRadarChart(average_hero) {
-        this.radarChart.data.datasets[1].data = this.heroToRadar(average_hero);
+        this.radarChart.data.datasets[1]['data'] = this.heroToRadar(average_hero);
         this.radarChart.update();
     }
     
